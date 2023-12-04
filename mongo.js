@@ -9,6 +9,11 @@ if (process.argv.length !== 3 && process.argv.length < 5) {
 
     const url = `mongodb+srv://miiak:${password}@cluster0.dpkvzxg.mongodb.net/phonebookApp?retryWrites=true&w=majority`
 
+    if (!uri) {
+        console.error('MongoDB URI is not defined in the environment variables.');
+        process.exit(1);
+    }
+    
     mongoose.set('strictQuery',false)
     mongoose.connect(url)
         
